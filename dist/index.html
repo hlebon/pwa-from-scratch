@@ -27,6 +27,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      #navbar-title {
         color: var(--dark);
       }
 
@@ -47,7 +50,7 @@
   <body>
     <!--APP-SHELL-->
     <nav id="navbar">
-      <h1>Flights</h1>
+      <h1 id="navbar-title">Flights</h1>
     </nav>
     <main id="screens">
       <section id="screen-flights" class="screen">
@@ -76,11 +79,11 @@
       }
 
       const screensEl = document.querySelector('#screens');
-      const navbarEl = document.querySelector('#navbar');
+      const navbarTitleEl = document.querySelector('#navbar-title');
       const pages = ['Flight', 'Rewards'];
       const pageTransition = debounce(() => {
         const index = Math.round(screensEl.scrollLeft / window.innerWidth);
-        navbarEl.textContent = pagesName[index];
+        navbarTitleEl.textContent = pages[index];
       }, 60);
       screensEl.addEventListener('scroll', pageTransition);
     </script>
